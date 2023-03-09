@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Empleados Consiti</title>
+        <h:outputStylesheet name="/css/bootstrap.min.css"/> 
+        <h:outputStylesheet name="/css/styles.css"/>  
+    </h:head>
+
+    <body>
+        <h:form>
+
+            <center class="title">
+
+                <h2>
+                    <h:outputText value="Lista de empleados"></h:outputText>
+                </h2>
+
+            </center>
+
+            <center class="row align-content-center nav">
+
+                <div class="col-3">
+                    <h:commandButton action = "#{empleadoBean.nuevo()}" value="Nuevo empleado" class="btn btn-success"></h:commandButton> 
+                </div>
+
+                <div class="col-9 search"> 
+                    <div class="search-name">
+                        <h:outputLabel for="buscar" class="texto">Nombres</h:outputLabel>
+
+                        <h:inputText id="buscar" value="#{empleadoBean.campoBuscar}" class="campo form-control"/>
+                    </div>
+
+                    <div class="search-button">
+                        <center><h:commandButton value="Buscar" action="#{empleadoBean.listar()}" class="btn btn-primary"></h:commandButton></center>
+                    </div>
+                </div>
+
+            </center>
+
+
+            <h:dataTable value="#{empleadoBean.listar()}" var="empleado" class="tabla table table-striped table-hover table-bordered" >
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    <h:outputText value="#{empleado.id}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nombres</f:facet>
+                    <h:outputText value="#{empleado.nombres}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Apellidos</f:facet>
+                    <h:outputText value="#{empleado.apellidos}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Telefono</f:facet>
+                    <h:outputText value="#{empleado.telefono}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                    <h:outputText value="#{empleado.email.email}"></h:outputText>
+                </h:column>
+                <h:column> 
+                    <f:facet name="header" >Opciones</f:facet>
+                    <div class="opciones">
+                        <h:commandButton action = "#{empleadoBean.editar(empleado)}" value="Actualizar" class="btn btn-primary"> 
+                        </h:commandButton>
+
+                        <h:commandButton action = "#{empleadoBean.eliminar(empleado)}" value="Eliminar" class="btn btn-danger"> 
+                        </h:commandButton>
+                    </div>
+
+                </h:column>
+            </h:dataTable>
+
+        </h:form>
+    </body>
+</html>

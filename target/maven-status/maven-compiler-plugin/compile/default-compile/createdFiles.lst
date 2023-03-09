@@ -1,0 +1,12 @@
+com\consiti\dao\EmailDao.class
+com\consiti\service\EmailServiceImpl.class
+com\consiti\dao\EmpleadoDaoImpl.class
+com\consiti\model\Email.class
+com\consiti\service\EmpleadoServiceImpl.class
+com\consiti\model\Empleado.class
+com\consiti\service\EmpleadoService.class
+com\consiti\controlller\EmpleadoBean.class
+com\consiti\configuration\ConfigurationJSF.class
+com\consiti\service\EmailService.class
+com\consiti\dao\EmailDaoImpl.class
+com\consiti\dao\EmpleadoDao.class
